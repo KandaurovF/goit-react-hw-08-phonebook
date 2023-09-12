@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'components/redux/contacts/contactsSlice';
-import { selectFilter } from 'components/redux/filterSlice';
-import { deleteContact } from 'components/redux/contacts/API';
+import { selectContacts } from 'redux/contacts/contactsSlice';
+import { selectFilter } from 'redux/filterSlice';
+import { deleteContact } from 'redux/contacts/API';
 import css from './ContactList.module.css';
 import { Confirm } from 'notiflix';
 

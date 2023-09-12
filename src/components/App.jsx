@@ -1,51 +1,66 @@
-import React, { useEffect, useState } from 'react';
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import Filter from './Filter';
-import IconButton from './IconButton';
-import Modal from './Modal';
-import { ImUserPlus } from 'react-icons/im';
+import { Suspense, lazy, useEffect } from 'react';
+import { NavLink, Route, Routes } from 'react-router-dom';
+import {
+  CONTACTS_ROUTE,
+  HOME_ROUTE,
+  LOGIN_ROUTE,
+  REGISTER_ROUTE,
+  appRoutes,
+} from 'constants/routes';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from './redux/contacts/API';
-import { selectError, selectIsLoading } from './redux/contacts/contactsSlice';
+import {
+  logOutUser,
+  refreshUser,
+  selectUserAuthentication,
+  selectUserData,
+} from 'redux/authReducer';
 import Loader from './Loader';
 
-export const App = () => {
-  const [showModal, setShowModal] = useState(false);
+const NotFoundPage = lazy(() => import('pages/NotFound'));
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
+export const App = () => {
+  const dispatch = useDispatch();
+  const authenticated = useSelector(selectUserAuthentication);
+  const userData = useSelector(selectUserData);
+
+  const handleLogOut = () => {
+    dispatch(logOutUser());
   };
 
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return (
-    <div className="wrapper">
-      <h1 className="main__heading">Phonebook</h1>
-      <div className="container">
-        {showModal && (
-          <Modal onClose={toggleModal}>
-            <ContactForm closeModal={toggleModal} />
-          </Modal>
-        )}
+    <div>
+      <header>
+        <nav className="nav">
+          <NavLink to={HOME_ROUTE}>Home</NavLink>
 
-        <div className="contacts__header">
-          <h2 className="secondary__heading">Contacts</h2>
-          <IconButton onClick={toggleModal} aria-label="Add contact">
-            <ImUserPlus size={20} fill="#000" />
-          </IconButton>
-        </div>
-
-        <Filter />
-        {isLoading && !error && <Loader />}
-        <ContactList />
-      </div>
+          {authenticated ? (
+            <>
+              <NavLink to={CONTACTS_ROUTE}>Phonebook</NavLink>
+              <span>Hello, {userData.name}</span>
+              <button onClick={handleLogOut}>Log Out</button>
+            </>
+          ) : (
+            <>
+              <NavLink to={LOGIN_ROUTE}>Login</NavLink>
+              <NavLink to={REGISTER_ROUTE}>Register</NavLink>
+            </>
+          )}
+        </nav>
+      </header>
+      <main>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            {appRoutes.map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
+            ))}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </main>
     </div>
   );
 };

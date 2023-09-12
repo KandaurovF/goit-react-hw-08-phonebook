@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'components/redux/contacts/contactsSlice';
-import { selectFilter, setFilter } from 'components/redux/filterSlice';
+import { selectContacts } from 'redux/contacts/contactsSlice';
+import { selectFilter, setFilter } from 'redux/filterSlice';
 // import PropTypes from 'prop-types';
 import { RiSearchLine } from 'react-icons/ri';
 import css from './Filter.module.css';

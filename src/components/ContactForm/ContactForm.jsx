@@ -3,8 +3,8 @@ import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { INITIAL_VALUES, schema } from './Config';
-import { selectContacts } from 'components/redux/contacts/contactsSlice';
-import { addContact } from 'components/redux/contacts/API';
+import { selectContacts } from 'redux/contacts/contactsSlice';
+import { addContact } from 'redux/contacts/API';
 import css from './ContactForm.module.css';
 
 const ContactForm = ({ closeModal }) => {
