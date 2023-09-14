@@ -1,0 +1,27 @@
+.header {
+  background-color: rgb(25, 118, 210);
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px;
+}
+
+.NavLink {
+  padding: 20px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  transition: all 0.3s;
+}
+.active {
+  padding: 20px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 500;
+  transform: scale(1.2);
+  transition: all 0.3s;
+}
