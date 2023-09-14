@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const StarField = () => {
   const [stars, setStars] = useState([]);
-  const speed = 0.3;
+  const speed = 0.5;
 
   useEffect(() => {
     const createStars = () => {
@@ -64,7 +64,7 @@ class Star {
 
     let r;
     if (window.innerWidth <= 1023) {
-      r = (window.innerWidth - this.z) / 150; // Размер звезд для ширины до 1024px
+      r = (window.innerWidth - this.z) / 120; // Размер звезд для ширины до 1024px
     } else {
       r = (window.innerWidth - this.z) / 300; // Уменьшенный размер звезд для ширины более 1024px
     }
