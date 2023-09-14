@@ -3,9 +3,9 @@ import { RestrictedRoute } from 'components/RestrictedRoute/RestrictedRoute';
 import { lazy } from 'react';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
-const ContactsPage = lazy(() => import('pages/ContactsPage'));
-const LoginPage = lazy(() => import('pages/LoginPage'));
-const RegisterPage = lazy(() => import('pages/RegisterPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
+const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 
 export const HOME_ROUTE = '/';
 export const CONTACTS_ROUTE = '/contacts';
