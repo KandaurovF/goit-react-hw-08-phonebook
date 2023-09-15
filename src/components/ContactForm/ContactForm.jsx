@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { INITIAL_VALUES, schema } from './Config';
+import { INITIAL_VALUES, schema } from '../../constants/Config';
 import { selectContacts } from 'redux/contactsReducer';
 // import { selectContacts } from 'redux/contacts/contactsSlice';
 import { addContact } from 'redux/contactsReducer';

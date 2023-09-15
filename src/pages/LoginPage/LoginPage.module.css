@@ -17,7 +17,6 @@
   transform: translate(-50%, -50%);
   width: 300px;
   padding: 30px;
-  height: 200px;
 
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
@@ -31,7 +30,7 @@
   color: #00ff00;
 }
 
-label {
+.label {
   position: relative;
   display: block;
   margin-bottom: 30px;
@@ -50,12 +49,14 @@ span {
   transition: color 250ms linear, transform 250ms linear;
 }
 
-input:focus + span,
-input:not(:placeholder-shown) + span {
+.input:focus + span,
+.input:not(:placeholder-shown) + span {
+  /* color: #000; */
   transform: translateY(-100%) translateX(-12%) scale(0.7);
 }
 
-input {
+.input {
+  height: 24px;
   width: 100%;
   border: none;
   border-bottom: 1px solid rgba(0, 255, 0, 0.4);
@@ -63,13 +64,18 @@ input {
   font-family: 'Orbitron', sans-serif;
   font-size: 14px;
   letter-spacing: 0.15em;
-  color: rgb(0, 255, 0);
+  color: #00ff00;
   outline: none;
   transition: border-color 250ms linear;
 }
 
-input:focus {
+.input:focus {
   border-color: rgba(0, 255, 0, 0.7);
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
 }
 
 .submitBtn {

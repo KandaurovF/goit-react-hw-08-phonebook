@@ -9,3 +9,21 @@
   height: 100vh;
   overflow: hidden;
 }
+
+.homePageDescr {
+  margin-top: 100px;
+  padding-left: 30px;
+  width: 340px;
+  color: #00ff00;
+}
+
+.homePageDescrTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.descr {
+  font-size: 1em;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+}

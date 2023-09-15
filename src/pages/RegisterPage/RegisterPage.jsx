@@ -1,25 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from 'redux/authReducer';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { schema, INITIAL_VALUES } from '../../constants/RegisterConfig';
 import css from './RegisterPage.module.css';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    const name = event.currentTarget.elements.userName.value;
-    const email = event.currentTarget.elements.userEmail.value;
-    const password = event.currentTarget.elements.userPassword.value;
-
-    const formData = {
-      name,
-      email,
-      password,
-    };
-
-    dispatch(registerUser(formData));
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(registerUser(values));
+    resetForm();
   };
 
   return (
@@ -30,29 +21,65 @@ const RegisterPage = () => {
           Signing up for an account is free and easy. Fill out the form below to
           get started.
         </p>
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>
-            <input type="text" name="userName" placeholder=" " required />
-            <span>Username:</span>
-          </label>
-          <label>
-            <input type="email" name="userEmail" placeholder=" " required />
-            <span>Email:</span>
-          </label>
-          <label>
-            <input
-              type="password"
-              name="userPassword"
-              placeholder=" "
-              minLength={7}
-              required
-            />
-            <span>Password:</span>
-          </label>
-          <button className={css.submitBtn} type="submit">
-            Register
-          </button>
-        </form>
+        <Formik
+          initialValues={INITIAL_VALUES}
+          validationSchema={schema}
+          onSubmit={handleSubmit}
+        >
+          <Form autoComplete="off">
+            <label className={css.label} htmlFor="userName">
+              <Field
+                className={css.input}
+                name="name"
+                type="text"
+                id="userName"
+                placeholder=" "
+                autoComplete="off"
+              />
+              <span className={css.span}>name:</span>
+              <ErrorMessage
+                className={css.errorMessage}
+                name="name"
+                component="p"
+              />
+            </label>
+            <label className={css.label} htmlFor="userEmail">
+              <Field
+                className={css.input}
+                name="email"
+                id="userEmail"
+                type="text"
+                placeholder=" "
+                autoComplete="off"
+              />
+              <span className={css.span}>Email:</span>
+              <ErrorMessage
+                className={css.errorMessage}
+                name="email"
+                component="p"
+              />
+            </label>
+            <label className={css.label} htmlFor="userPassword">
+              <Field
+                className={css.input}
+                name="password"
+                type="password"
+                id="userPassword"
+                placeholder=" "
+                autoComplete="off"
+              />
+              <span className={css.span}>Password:</span>
+              <ErrorMessage
+                className={css.errorMessage}
+                name="password"
+                component="p"
+              />
+            </label>
+            <button className={css.submitBtn} type="submit">
+              Register
+            </button>
+          </Form>
+        </Formik>
       </div>
     </div>
   );

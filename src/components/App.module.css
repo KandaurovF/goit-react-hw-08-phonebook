@@ -15,7 +15,7 @@
 }
 
 .NavLink {
-  padding: 20px 15px;
+  padding: 20px 10px;
   text-decoration: none;
   text-transform: uppercase;
   color: #008800;
@@ -23,7 +23,7 @@
   transition: all 0.3s;
 }
 .active {
-  padding: 20px 15px;
+  padding: 20px 10px;
   text-decoration: none;
   text-transform: uppercase;
   color: #00ff00;
@@ -34,7 +34,7 @@
 
 .logOutUser {
   /* margin-left: 15px; */
-  padding: 20px 15px;
+  padding: 20px 10px;
   cursor: pointer;
   font-family: inherit;
   font-size: 14px;
