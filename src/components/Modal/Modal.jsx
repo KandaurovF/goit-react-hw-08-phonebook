@@ -40,7 +40,7 @@ const Modal = ({ onClose, children }) => {
           onClick={handleClose}
           aria-label="Close modal"
         >
-          <ImCross fill="#000" />
+          <ImCross fill="#008800" />
         </IconButton>
 
         {children}

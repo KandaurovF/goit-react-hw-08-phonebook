@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix';
 import { instance } from './authReducer';
 
 export const requestContacts = createAsyncThunk(
@@ -67,6 +68,7 @@ const contactsSlice = createSlice({
         state.contacts = state.contacts.filter(
           contact => contact.id !== action.payload.id
         );
+        Notify.success('Contact successfully removed');
       })
 
       .addMatcher(

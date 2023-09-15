@@ -1,7 +1,21 @@
+.cardsListContainer {
+  max-height: 270px;
+  overflow-y: auto;
+}
+.cardsListContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cardsListContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 255, 0, 0.2);
+  border-radius: 50px;
+  /* height: 20px; */
+}
+
 .cardsList {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
 .card {
@@ -9,9 +23,29 @@
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px 0 rgba(0, 255, 0, 0.3);
 }
 
 .contactInfo {
   padding-left: 10px;
+  color: #00ff00;
+}
+
+.contactInfo > p:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.contactDelBtn {
+  padding: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: #00ff00;
+  background-color: inherit;
+  border: 1px solid rgba(0, 255, 0, 0.4);
+  border-radius: 5px;
+}
+.contactDelBtn:active {
+  background-color: #008800;
 }

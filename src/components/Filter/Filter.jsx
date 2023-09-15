@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/contacts/contactsSlice';
+import { selectContacts } from 'redux/contactsReducer';
+// import { selectContacts } from 'redux/contacts/contactsSlice';
 import { selectFilter, setFilter } from 'redux/filterSlice';
 // import PropTypes from 'prop-types';
 import { RiSearchLine } from 'react-icons/ri';
@@ -13,12 +14,12 @@ const Filter = () => {
 
   return (
     <div className={css.searchbar__wrapper}>
-      <RiSearchLine className={css.search__icon} />
+      <RiSearchLine className={css.search__icon} fill="#008800" />
       <input
         type="text"
         value={filter}
         onChange={e => dispatch(setFilter(e.target.value))}
-        placeholder={`Search contact from ${contacts.length} contacts`}
+        placeholder={`Search contact from: ${contacts.length}`}
         className={css.searchInput}
       />
     </div>

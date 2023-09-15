@@ -10,7 +10,7 @@
 
 .nav {
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   padding: 0 20px;
 }
 
@@ -30,4 +30,20 @@
   font-weight: 500;
   transform: scale(1.2);
   transition: all 0.3s;
+}
+
+.logOutUser {
+  /* margin-left: 15px; */
+  padding: 20px 15px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: #008800;
+  background-color: inherit;
+  border: none;
+}
+
+.logOutUser:active {
+  background-color: #008800;
 }

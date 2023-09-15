@@ -1,6 +1,10 @@
 .spaceBackground {
   position: relative;
-  background-image: url('../../images/Contacts.jpg');
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.3),
+      rgba(46, 47, 66, 0.3)
+    ),
+    url('../../images/Contacts.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -21,4 +25,8 @@
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   box-shadow: 0 0 30px -5px rgba(0, 255, 255, 0.3);
+}
+
+.heading {
+  color: #00ff00;
 }

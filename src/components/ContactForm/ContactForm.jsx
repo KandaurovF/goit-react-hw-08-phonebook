@@ -3,8 +3,10 @@ import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { INITIAL_VALUES, schema } from './Config';
-import { selectContacts } from 'redux/contacts/contactsSlice';
-import { addContact } from 'redux/contacts/API';
+import { selectContacts } from 'redux/contactsReducer';
+// import { selectContacts } from 'redux/contacts/contactsSlice';
+import { addContact } from 'redux/contactsReducer';
+// import { addContact } from 'redux/contacts/API';
 import css from './ContactForm.module.css';
 
 const ContactForm = ({ closeModal }) => {
@@ -46,11 +48,12 @@ const ContactForm = ({ closeModal }) => {
         validationSchema={schema}
         onSubmit={hendleSubmit}
       >
-        <Form className={css.form}>
+        <Form autoComplete="off" className={css.form}>
           <label className={css.label} htmlFor={inputNameId}>
             <Field
               className={css.input}
               name="name"
+              maxLength={22}
               id={inputNameId}
               type="text"
               placeholder=" "
@@ -67,6 +70,7 @@ const ContactForm = ({ closeModal }) => {
             <Field
               className={css.input}
               name="number"
+              maxLength={22}
               id={inputNumberId}
               type="tel"
               placeholder=" "

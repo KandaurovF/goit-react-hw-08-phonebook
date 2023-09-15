@@ -1,5 +1,6 @@
 .form__heading {
   margin-bottom: 30px;
+  color: #00ff00;
 }
 
 .label {
@@ -12,33 +13,37 @@ span {
   position: absolute;
   top: 0;
   left: 0;
-  font-weight: 600;
-  font-size: 11px;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 1.36;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: #00ff00;
   transition: color 250ms linear, transform 250ms linear;
 }
 
 .input:focus + span,
 .input:not(:placeholder-shown) + span {
-  color: #000;
-  transform: translateY(-100%);
+  /* color: #000; */
+  transform: translateY(-100%) translateX(-12%) scale(0.7);
 }
 
 .input {
   height: 24px;
   width: 100%;
   border: none;
-  border-bottom: 1px solid rgba(157, 164, 189, 0.4);
+  border-bottom: 1px solid rgba(0, 255, 0, 0.4);
   background-color: transparent;
-  color: #000;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: #00ff00;
   outline: none;
   transition: border-color 250ms linear;
 }
 
 .input:focus {
-  border-color: #000;
+  border-color: rgba(0, 255, 0, 0.7);
 }
 
 .errorMessage {
@@ -47,11 +52,16 @@ span {
 }
 
 .addContact {
-  border-radius: 50px;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  background-color: #41bf13;
-  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: #00ff00;
+  background-color: inherit;
+  border: 1px solid rgba(0, 255, 0, 0.4);
+  border-radius: 5px;
+}
+.addContact:active {
+  background-color: #008800;
 }

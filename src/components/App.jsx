@@ -12,7 +12,6 @@ import {
   logOutUser,
   refreshUser,
   selectUserAuthentication,
-  selectUserData,
 } from 'redux/authReducer';
 import Loader from './Loader';
 import css from './App.module.css';
@@ -22,7 +21,6 @@ const NotFoundPage = lazy(() => import('pages/NotFound'));
 export const App = () => {
   const dispatch = useDispatch();
   const authenticated = useSelector(selectUserAuthentication);
-  const userData = useSelector(selectUserData);
 
   const handleLogOut = () => {
     dispatch(logOutUser());
@@ -47,8 +45,10 @@ export const App = () => {
               <NavLink className={activeLink} to={CONTACTS_ROUTE}>
                 Phonebook
               </NavLink>
-              <span>Hello, {userData.name}</span>
-              <button onClick={handleLogOut}>Log Out</button>
+
+              <button className={css.logOutUser} onClick={handleLogOut}>
+                Log Out
+              </button>
             </>
           ) : (
             <>
